@@ -3,10 +3,10 @@ namespace ITEC\DAW\PROGRAMACION\HTMLELEMENTS;
 class htmlelementsClass{
     private string $tagname;
     private array $atributos;
-    private array $contenidos;
+    private array|string $contenidos;
     private bool $vacio;
 
-    public function __construct(string $tagname, array $atributos = [], array $contenidos = [], bool $vacio = true){
+    public function __construct(string $tagname, array $atributos = [], array|string $contenidos = [], bool $vacio = true){
     $this->tagname = $tagname;
     $this->atributos = $atributos;
     $this->contenidos = $contenidos;
@@ -86,22 +86,3 @@ class htmlelementsClass{
     }
 
 }
-
-
-
-echo $tag1->getTagname(); /* Dentro del tag1 está accediento al "div" porque es el tagname, y 
-                            como el tagname está el primero pues detecta que es el "div" en este caso */
-
-echo $tag2->getTagname(); /* Aquí hace lo mismo, solo que coge el p. */
-
-// Esto lo que hace es imprimir en pantalla. 
-
-$tag1 = new HTMLelements("div", ["id"=>"div1", "class"=>"divclass"], [], false);
-
-$tag2 = new HTMLelementos("p", ["id"=>"p", "class"=>"pclass"], [], false);
-
-
-
-
-
-?>

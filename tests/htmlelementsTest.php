@@ -1,11 +1,11 @@
 <?php
 use PHPUnit\Framework\TestCase;
-use ITEC\DAW\PROGRAMACION\HTMLELEMENTS;
+use ITEC\DAW\PROGRAMACION\HTMLELEMENTS\htmlelementsClass;
 
 final class htmlelementsClassTest extends TestCase{
 
    public function DPtesthtmlelementsClass(){
-        $p = new \ITEC\DAW\PROGRAMACION\HTMLELEMENTS\htmlElements\htmlelementsClass("p", [], "texto.", false);           
+        $p = new htmlelementsClass("p", [], "texto.", false);           
 
         return[
             "TEST BR"=>[
@@ -39,8 +39,8 @@ final class htmlelementsClassTest extends TestCase{
     /**
      * @dataProvider DPtesthtmlelementsClass
      */
-    public function testhtmlelementsClasss($codeHTMLesperado, $tagname, $attributes, $content, $isEmpty){
-        $tagObject = new \ITEC\DAW\PROGRAMACION\HTMLELEMENTS\htmlElements\htmlelementsClass($tagname, $attributes, $content, $isEmpty);
+    public function testhtmlelementsClass($codeHTMLesperado, $tagname, $attributes, $content, $isEmpty){
+        $tagObject = new htmlelementsClass($tagname, $attributes, $content, $isEmpty);
         $this->assertEquals(
             $codeHTMLesperado,
             $tagObject->getHtml()
