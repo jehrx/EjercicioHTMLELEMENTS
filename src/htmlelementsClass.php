@@ -1,6 +1,6 @@
 <?php
-
-class htmlElements{
+namespace ITEC\DAW\PROGRAMACION\HTMLELEMENTS;
+class htmlelementsClass{
     private string $tagname;
     private array $atributos;
     private array $contenidos;
@@ -35,6 +35,32 @@ class htmlElements{
     }
     //:::FIN BORRAR ATRIBUTO:::
 
+    //GetHTML - Convertir el objeto en HTML
+
+    public function getHTML(){
+        $html = "<".$this->tagname;
+        foreach ($this->attributes as $attname => $attvalue){
+            $html.=" ".$attname."=\"".$attvalue."\"";
+        }
+    if($this->isEmpty){
+        $html .=" />";
+    }else{
+        $html .= " />";
+        if(is_array($this->content)){
+            foreach($this->content as $content){
+                $html .= $content->getHTML();
+            }
+
+
+        }else{
+            $html .= $this->content;
+        }
+        $html .= "</".$this->tagname.">";
+    }
+    return $html;
+    }
+
+
 
     // ::::FIN MÉTODOS::::
 
@@ -58,8 +84,6 @@ class htmlElements{
         $this->contenidos = $content;
 
     }
-
-   
 
 }
 
