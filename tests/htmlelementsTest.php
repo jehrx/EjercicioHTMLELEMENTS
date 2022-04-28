@@ -4,7 +4,7 @@ use ITEC\DAW\PROGRAMACION\HTMLELEMENTS;
 
 final class htmlelementsClassTest extends TestCase{
 
-   public function DPtesthtmlelements(){
+   public function DPtesthtmlelementsClass(){
         $p = new \ITEC\DAW\PROGRAMACION\HTMLELEMENTS\htmlElements\htmlelementsClass("p", [], "texto.", false);           
 
         return[
@@ -37,9 +37,9 @@ final class htmlelementsClassTest extends TestCase{
     }
 
     /**
-     * @dataProvider DPtesthtmlelements
+     * @dataProvider DPtesthtmlelementsClass
      */
-    public function testhtmlelements($codeHTMLesperado, $tagname, $attributes, $content, $isEmpty){
+    public function testhtmlelementsClas($codeHTMLesperado, $tagname, $attributes, $content, $isEmpty){
         $tagObject = new \ITEC\DAW\PROGRAMACION\HTMLELEMENTS\htmlElements\htmlelementsClass($tagname, $attributes, $content, $isEmpty);
         $this->assertEquals(
             $codeHTMLesperado,
