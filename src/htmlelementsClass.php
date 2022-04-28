@@ -1,17 +1,17 @@
 <?php
 namespace ITEC\DAW\PROGRAMACION\HTMLELEMENTS;
 class htmlelementsClass{
-    private string $tagname;
-    private array $atributos;
-    private array|string $contenidos;
-    private bool $vacio;
+        private string $tagname;
+        private array $attributes; 
+        private string|array $content;
+        private bool $isEmpty;
 
-    public function __construct(string $tagname, array $atributos = [], array|string $contenidos = [], bool $vacio = true){
-    $this->tagname = $tagname;
-    $this->atributos = $atributos;
-    $this->contenidos = $contenidos;
-    $this->vacio = $vacio;
-    }
+        public function __construct(string $tagname, array $attributes,string|array $content, bool $isEmpty){
+            $this->tagname = $tagname;
+            $this->attributes = $attributes;
+            $this->content = $isEmpty?null:$content;
+            $this->isEmpty = $isEmpty;
+        }
 
 
 
@@ -43,9 +43,9 @@ class htmlelementsClass{
             $html.=" ".$attname."=\"".$attvalue."\"";
         }
     if($this->isEmpty){
-        $html .=" />";
+        $html .="/>";
     }else{
-        $html .= " />";
+        $html .= ">";
         if(is_array($this->content)){
             foreach($this->content as $content){
                 $html .= $content->getHTML();

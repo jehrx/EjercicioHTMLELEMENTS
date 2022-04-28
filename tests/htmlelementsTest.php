@@ -5,26 +5,26 @@ use ITEC\DAW\PROGRAMACION\HTMLELEMENTS\htmlelementsClass;
 final class htmlelementsClassTest extends TestCase{
 
    public function DPtesthtmlelementsClass(){
-        $p = new htmlelementsClass("p", [], "texto.", false);           
+        $p = new htmlelementsClass("p", [],[], false);           
 
         return[
-            "TEST BR"=>[
-                "<br>",
-                "br",
+            "TEST DIV"=>[
+                "<div></div>",
+                "div",
                 [],
-                null,
-                true
+                [],
+                false
             ],
 
             "TEST P" =>[
-                '<p id="p1" class="párrafo">Lorem ipsum dolor sit',
+                '<p id="p1" class="parrafo">Lorem ipsum dolor sit</p>',
                 "p",
                 ["id" => "p1", "class"=> "parrafo"],
                 "Lorem ipsum dolor sit",
                 false 
             ],
             "TEST NESTED Element"=>[
-                'div id="container"><p id="p1" class="parrafo"> texto.</p> </div>',
+                '<div id="container"><p></p></div>',
                 "div",
                 ["id" => "container"],
                 [
