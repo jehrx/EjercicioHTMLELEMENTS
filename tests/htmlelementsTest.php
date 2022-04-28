@@ -39,7 +39,7 @@ final class htmlelementsClassTest extends TestCase{
     /**
      * @dataProvider DPtesthtmlelementsClass
      */
-    public function testhtmlelementsClass($codeHTMLesperado, $tagname, $attributes, $content, $isEmpty){
+    public function testhtmlelementsClasss($codeHTMLesperado, $tagname, $attributes, $content, $isEmpty){
         $tagObject = new \ITEC\DAW\PROGRAMACION\HTMLELEMENTS\htmlElements\htmlelementsClass($tagname, $attributes, $content, $isEmpty);
         $this->assertEquals(
             $codeHTMLesperado,
